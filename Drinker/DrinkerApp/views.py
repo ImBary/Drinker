@@ -68,25 +68,29 @@ def recommend_drink(request):
             strength = form.cleaned_data['strength']
             temperature = form.cleaned_data['temperature']
             complexity = form.cleaned_data['complexity']
-
+            isInBase = False
             drinks = Drink.objects.all()
             if taste:
                 filtred = drinks.filter(taste_type__icontains=taste)
                 if filtred.exists():
                     drinks = filtred
+                    isInBase=True
             if strength:
                 filtred = drinks.filter(strength__icontains=strength)
                 if filtred.exists():
                     drinks = filtred
+                    isInBase=True
             if temperature:
                 filtred = drinks.filter(temperature__icontains=temperature)
                 if filtred.exists():
                     drinks = filtred
+                    isInBase=True
             if complexity:
                 filtred = drinks.filter(complexity__icontains = complexity)
                 if filtred.exists():
                     drinks = filtred
-            if drinks.exists():
+                    isInBase=True
+            if drinks.exists() and isInBase:
                 recommended_drink = drinks.order_by('?').first()
             else:
                 messages.warning(request,"Sorry, we dont have this type of drink in our base yet...")
