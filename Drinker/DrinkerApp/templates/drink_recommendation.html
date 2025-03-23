@@ -17,11 +17,11 @@
     </form>
 
     {% if drink %}
-        <h3>We Recommend: {{ drink.name }}</h3>
-        <p>{{ drink.description }}</p>
-        <img src="{{ drink.photo.url }}" alt="{{ drink.name }}" style="max-width: 200px;">
+    <hr class="my-4"> 
+    <h3>We Recommend: {{ drink.name }}</h3>
+    <p>{{ drink.description }}</p>
+    <img src="{{ drink.photo.url }}" alt="{{ drink.name }}" style="max-width: 640px;">
     {% endif %}
-
     
 
     <script>
