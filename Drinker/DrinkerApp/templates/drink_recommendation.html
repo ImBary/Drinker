@@ -11,17 +11,25 @@
     {% endfor %}
     {% endif %}
     <form method="post">
+        <hr class="my-4"> 
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Find My Drink</button>
     </form>
-
+    {% if matches %}
+    <hr class="my-4"> 
+    <h3>What's the match?  
+        <span class="text-success">{{ matches|join:", " }}</span>
+    </h3>
+    {% endif %}
     {% if drink %}
     <hr class="my-4"> 
     <h3>We Recommend: {{ drink.name }}</h3>
     <p>{{ drink.description }}</p>
     <img src="{{ drink.photo.url }}" alt="{{ drink.name }}" style="max-width: 640px;">
     {% endif %}
+    
+
     
 
     <script>
