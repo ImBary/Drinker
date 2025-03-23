@@ -61,6 +61,7 @@ def logout_view(request):
 
 def recommend_drink(request):
     recommended_drink = None
+    matches=[]
     if request.method == "POST":
         form = DrinkPreferenceForm(request.POST)
         if form.is_valid():
@@ -69,26 +70,31 @@ def recommend_drink(request):
             temperature = form.cleaned_data['temperature']
             complexity = form.cleaned_data['complexity']
             isInBase = False
+            
             drinks = Drink.objects.all()
             if taste:
                 filtred = drinks.filter(taste_type__icontains=taste)
                 if filtred.exists():
                     drinks = filtred
+                    matches.append("taste")
                     isInBase=True
             if strength:
                 filtred = drinks.filter(strength__icontains=strength)
                 if filtred.exists():
                     drinks = filtred
+                    matches.append("strength")
                     isInBase=True
             if temperature:
                 filtred = drinks.filter(temperature__icontains=temperature)
                 if filtred.exists():
                     drinks = filtred
+                    matches.append("temperature")
                     isInBase=True
             if complexity:
                 filtred = drinks.filter(complexity__icontains = complexity)
                 if filtred.exists():
                     drinks = filtred
+                    matches.append("complexity")
                     isInBase=True
             if drinks.exists() and isInBase:
                 recommended_drink = drinks.order_by('?').first()
@@ -98,4 +104,4 @@ def recommend_drink(request):
                 
     else:
         form = DrinkPreferenceForm()
-    return render(request,'drink_recommendation.html',{'form':form, 'drink':recommended_drink})
+    return render(request,'drink_recommendation.html',{'form':form, 'drink':recommended_drink, 'matches':matches})

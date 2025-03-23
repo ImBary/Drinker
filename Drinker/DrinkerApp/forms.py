@@ -5,11 +5,26 @@ from django.contrib.auth.models import User
 
 
 # Drinki
+from django import forms
+from .models import Drink
+
 class DrinkForm(forms.ModelForm):
     class Meta:
         model = Drink
-        fields = ["name", "description", "photo", "ingrediens", "instructon"]
+        fields = ["name", "description", "photo", "ingrediens", "instructon", 
+                  "taste_type", "strength", "temperature", "complexity"]
 
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "form-control"}),
+            "description": forms.Textarea(attrs={"class": "form-control", "rows": 3}),
+            "photo": forms.FileInput(attrs={"class": "form-control", "style": "display: block; width: 30%; padding: 0px;"}),  
+            "ingrediens": forms.Textarea(attrs={"class": "form-control", "rows": 3}),
+            "instructon": forms.Textarea(attrs={"class": "form-control", "rows": 3}),
+            "taste_type": forms.Select(attrs={"class": "form-select"}),
+            "strength": forms.Select(attrs={"class": "form-select"}),
+            "temperature": forms.Select(attrs={"class": "form-select"}),
+            "complexity": forms.Select(attrs={"class": "form-select"}),
+        }
 
 # Rejestracja
 class RegisterForm(UserCreationForm):

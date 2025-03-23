@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
-
 {% block content %}
-    <h2>Dodaj drink</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Dodaj</button>
-    </form>
+<div class="container mt-5">
+    <div class="card shadow-sm p-4">
+        <h2 class="mb-4 text-center">Dodaj Drink</h2>
+        <form method="POST" enctype="multipart/form-data" class="needs-validation">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success w-100">Dodaj Drink</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
