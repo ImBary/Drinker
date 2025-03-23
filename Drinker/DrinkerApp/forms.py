@@ -18,3 +18,36 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
+TASTE_CHOICES = [
+        ('sweet', 'Sweet'),
+        ('bitter', 'Bitter'),
+        ('sour', 'Sour'),
+        ('salty', 'Salty'),
+        ('umami', 'Umami'),
+    ]
+    
+STRENGTH_CHOICES = [
+        ('non-alcoholic', 'Non-Alcoholic'),
+        ('light', 'Light'),
+        ('medium', 'Medium'),
+        ('strong', 'Strong'),
+    ]
+    
+TEMPERATURE_CHOICES = [
+        ('hot', 'Hot'),
+        ('cold', 'Cold'),
+        ('warm', 'Warm'),
+    ]
+    
+COMPLEXITY_CHOICES = [
+        ('simple', 'Simple'),
+        ('moderate', 'Moderate'),
+        ('complex', 'Complex'),
+    ]
+
+class DrinkPreferenceForm(forms.Form):
+    taste = forms.ChoiceField(choices=TASTE_CHOICES, widget=forms.RadioSelect, label="What taste do you prefer?")
+    strength = forms.ChoiceField(choices=STRENGTH_CHOICES, widget=forms.RadioSelect, label="How strong should it be?")
+    temperature = forms.ChoiceField(choices=TEMPERATURE_CHOICES, widget=forms.RadioSelect, label="Preferred temperature?")
+    complexity = forms.ChoiceField(choices=COMPLEXITY_CHOICES, widget=forms.RadioSelect, label="How complex should it be?")

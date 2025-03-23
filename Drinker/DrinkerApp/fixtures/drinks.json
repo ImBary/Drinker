@@ -1,0 +1,38 @@
+[
+    {
+        "model": "yourapp.drink",
+        "pk": 1,
+        "fields": {
+            "name": "Whiskey Sour",
+            "description": "A classic sour cocktail with whiskey, lemon juice, and sugar.",
+            "photo": "images/whiskey_sour.jpg",
+            "ingrediens": "Whiskey, Lemon Juice, Sugar, Egg White",
+            "instructon": "Shake all ingredients with ice and strain into a glass.",
+            "likes": 10,
+            "dislikes": 2,
+            "user": 1,
+            "strength": "strong",
+            "taste_type": "sour",
+            "complexity": "medium",
+            "temperature": "cold"
+        }
+    },
+    {
+        "model": "yourapp.drink",
+        "pk": 2,
+        "fields": {
+            "name": "Margarita",
+            "description": "A refreshing tequila-based cocktail with lime and triple sec.",
+            "photo": "images/margarita.jpg",
+            "ingrediens": "Tequila, Lime Juice, Triple Sec, Salt",
+            "instructon": "Shake with ice and serve in a salt-rimmed glass.",
+            "likes": 15,
+            "dislikes": 1,
+            "user": 1,
+            "strength": "medium",
+            "taste_type": "sour",
+            "complexity": "simple",
+            "temperature": "cold"
+        }
+    }
+]

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Find Your Perfect Drink</h2>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-warning drink-alert">
+            {{ message }}
+            <button onclick="closeAlert(this)" style="margin-left: 10px;">OK</button>
+        </div>
+    {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Find My Drink</button>
+    </form>
+
+    {% if drink %}
+        <h3>We Recommend: {{ drink.name }}</h3>
+        <p>{{ drink.description }}</p>
+        <img src="{{ drink.photo.url }}" alt="{{ drink.name }}" style="max-width: 200px;">
+    {% endif %}
+
+    
+
+    <script>
+        function closeAlert(button) {
+            button.parentElement.style.display = "none";
+        }
+    </script>
+
+
+{% endblock %}
