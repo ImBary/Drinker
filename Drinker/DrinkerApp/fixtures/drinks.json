@@ -1,6 +1,6 @@
 [
     {
-        "model": "yourapp.drink",
+        "model": "DrinkerApp.drink",
         "pk": 1,
         "fields": {
             "name": "Whiskey Sour",
@@ -18,7 +18,7 @@
         }
     },
     {
-        "model": "yourapp.drink",
+        "model": "DrinkerApp.drink",
         "pk": 2,
         "fields": {
             "name": "Margarita",
