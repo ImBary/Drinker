@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if drink %}
+        <h1 class="text-center my-4">Recipe</h1>
+
+        <div class="row align-items-center mb-4">
+            <div class="col-md-6">
+                <img src="{{ drink.photo.url }}" class="img-fluid rounded" alt="{{ drink.name }}">
+            </div>
+            <div class="col-md-6">
+                <h3>{{ drink.name }}</h3>
+                <p>{{ drink.description }}</p><br>
+                <h5>Ingridiens:</h5>
+                <ul>
+                    {% for ingredient in ingredients_list %}
+                        <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul><br>
+                <h5>Instruction:</h5>
+                <p>{{ drink.instructon }}</p>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

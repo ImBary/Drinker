@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages 
+from django.contrib import messages
 from .forms import DrinkPreferenceForm
 from .forms import DrinkForm, RegisterForm
 from .models import Drink
@@ -40,6 +40,7 @@ def register(request):
         form = RegisterForm()
     return render(request, 'registration/register.html', {'form': form})
 
+
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -59,6 +60,7 @@ def logout_view(request):
     logout(request)
     return redirect("home")
 
+
 def recommend_drink(request):
     recommended_drink = None
     if request.method == "POST":
@@ -74,28 +76,34 @@ def recommend_drink(request):
                 filtred = drinks.filter(taste_type__icontains=taste)
                 if filtred.exists():
                     drinks = filtred
-                    isInBase=True
+                    isInBase = True
             if strength:
                 filtred = drinks.filter(strength__icontains=strength)
                 if filtred.exists():
                     drinks = filtred
-                    isInBase=True
+                    isInBase = True
             if temperature:
                 filtred = drinks.filter(temperature__icontains=temperature)
                 if filtred.exists():
                     drinks = filtred
-                    isInBase=True
+                    isInBase = True
             if complexity:
-                filtred = drinks.filter(complexity__icontains = complexity)
+                filtred = drinks.filter(complexity__icontains=complexity)
                 if filtred.exists():
                     drinks = filtred
-                    isInBase=True
+                    isInBase = True
             if drinks.exists() and isInBase:
                 recommended_drink = drinks.order_by('?').first()
             else:
-                messages.warning(request,"Sorry, we dont have this type of drink in our base yet...")
-                return render(request,'drink_recommendation.html',{'form':form})
-                
+                messages.warning(request, "Sorry, we dont have this type of drink in our base yet...")
+                return render(request, 'drink_recommendation.html', {'form': form})
+
     else:
         form = DrinkPreferenceForm()
-    return render(request,'drink_recommendation.html',{'form':form, 'drink':recommended_drink})
+    return render(request, 'drink_recommendation.html', {'form': form, 'drink': recommended_drink})
+
+
+def drink_view(request, drink_id):
+    drink = Drink.objects.filter(id=drink_id).first()
+    ingredients_list = drink.ingrediens.split(',')
+    return render(request, "drink_view.html", {'drink': drink, 'ingredients_list': ingredients_list})
