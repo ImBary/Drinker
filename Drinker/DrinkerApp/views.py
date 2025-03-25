@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
@@ -109,6 +109,23 @@ def recommend_drink(request):
     return render(request,'drink_recommendation.html',{'form':form, 'drink':recommended_drink, 'matches':matches})
 
 def drink_view(request, drink_id):
-    drink = Drink.objects.filter(id=drink_id).first()
+    drink = get_object_or_404(Drink, id=drink_id)  
+
+    if not drink.short_url:
+        drink.generate_short_url(request)
+
     ingredients_list = drink.ingrediens.split(',')
     return render(request, "drink_view.html", {'drink': drink, 'ingredients_list': ingredients_list})
+
+
+def custom_404_view(request, exception):
+    return render(request, 'errors/404.html', {}, status=404)
+
+def custom_500_view(request):
+    return render(request, 'errors/500.html', {}, status=500)
+
+def test_500(request):
+    raise Exception("Testing 500 error")
+
+
+

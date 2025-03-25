@@ -18,12 +18,19 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404, handler500
+from DrinkerApp.views import custom_404_view, custom_500_view
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("DrinkerApp.urls"))
 ]
+
+
+handler404 = 'DrinkerApp.views.custom_404_view'
+handler500 = 'DrinkerApp.views.custom_500_view'
+
 
 # NIE TYKAC
 # pozwla w trybie dev widziec zdjecia

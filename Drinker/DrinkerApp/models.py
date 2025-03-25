@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import pyshorteners
 
 # Create your models here.
 
@@ -45,6 +46,15 @@ class Drink(models.Model):
     strength = models.CharField(max_length=15, choices=STRENGTH_CHOICES, default='non-alcoholic')
     temperature = models.CharField(max_length=10, choices=TEMPERATURE_CHOICES, default='cold')
     complexity = models.CharField(max_length=10, choices=COMPLEXITY_CHOICES, default='simple')
+
+    short_url = models.URLField(blank=True, null=True)
+
+    def generate_short_url(self, request):
+        if not self.short_url:
+            long_url = request.build_absolute_uri(f"/drink/{self.id}")
+            s = pyshorteners.Shortener()
+            self.short_url = s.tinyurl.short(long_url)
+            self.save()
 
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
