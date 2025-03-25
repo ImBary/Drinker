@@ -123,13 +123,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Images
-
-MEDIA_URL = "/images/"
-
-MEDIA = BASE_DIR / 'images'
-
-
 # Logout
 
 LOGOUT_REDIRECT_URL = 'home'

@@ -21,5 +21,21 @@
                 <p>{{ drink.instructon }}</p>
             </div>
         </div>
+        {% if drink.short_url %}
+            <div class="my-3">
+                <input type="text" id="shortUrl" class="form-control" value="{{ drink.short_url }}" readonly>
+                <button class="btn btn-primary mt-2" onclick="copyShortUrl()">Copy URL</button>
+            </div>
+
+            <script>
+                function copyShortUrl() {
+                    var copyText = document.getElementById("shortUrl");
+                    copyText.select();
+                    copyText.setSelectionRange(0, 99999);
+                    document.execCommand("copy");
+                    alert("Copied: " + copyText.value);
+                }
+            </script>
+        {% endif %}
     {% endif %}
 {% endblock %}

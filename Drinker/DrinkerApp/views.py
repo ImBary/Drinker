@@ -6,7 +6,7 @@ from django.contrib import messages
 from .forms import DrinkPreferenceForm
 from .forms import DrinkForm, RegisterForm
 from .models import Drink
-
+import pyshorteners
 from django.http import HttpResponse
 
 
@@ -22,6 +22,16 @@ def add_drink(request):
         if form.is_valid():
             drink = form.save(commit=False)
             drink.user = request.user
+            drink.save()
+
+            url = request.build_absolute_uri(f"/drink/{drink.id}")
+
+            # Short URL
+            shortener = pyshorteners.Shortener()
+            short_url = shortener.tinyurl.short(url)
+            drink.short_url = short_url
+
+            # Save
             drink.save()
             return redirect("home")
     else:
@@ -107,6 +117,7 @@ def recommend_drink(request):
     else:
         form = DrinkPreferenceForm()
     return render(request,'drink_recommendation.html',{'form':form, 'drink':recommended_drink, 'matches':matches})
+
 
 def drink_view(request, drink_id):
     drink = Drink.objects.filter(id=drink_id).first()
