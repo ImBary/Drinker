@@ -36,5 +36,139 @@
             "temperature": "cold",
             "short_url": ""
         }
+    },
+    {
+    "model": "DrinkerApp.drink",
+    "pk": 3,
+    "fields": {
+        "name": "Mojito",
+        "description": "A refreshing rum-based cocktail with mint and lime.",
+        "photo": "images/mojito.jpg",
+        "ingrediens": "Rum, Mint, Lime, Sugar, Soda Water",
+        "instructon": "Muddle mint and sugar, add rum, lime juice, and soda water.",
+        "likes": 12,
+        "dislikes": 3,
+        "user": 1,
+        "strength": "light",
+        "taste_type": "sour",
+        "complexity": "simple",
+        "temperature": "cold",
+        "short_url": ""
     }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 4,
+    "fields": {
+        "name": "Piña Colada",
+        "description": "A sweet tropical cocktail with rum, coconut, and pineapple.",
+        "photo": "images/pina_colada.jpg",
+        "ingrediens": "Rum, Coconut Cream, Pineapple Juice",
+        "instructon": "Blend all ingredients with ice until smooth.",
+        "likes": 18,
+        "dislikes": 4,
+        "user": 1,
+        "strength": "light",
+        "taste_type": "sweet",
+        "complexity": "simple",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 5,
+    "fields": {
+        "name": "Cosmopolitan",
+        "description": "A stylish vodka cocktail with cranberry and lime.",
+        "photo": "images/cosmopolitan.jpg",
+        "ingrediens": "Vodka, Triple Sec, Cranberry Juice, Lime Juice",
+        "instructon": "Shake with ice and strain into a martini glass.",
+        "likes": 14,
+        "dislikes": 2,
+        "user": 1,
+        "strength": "medium",
+        "taste_type": "bitter",
+        "complexity": "medium",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 6,
+    "fields": {
+        "name": "Negroni",
+        "description": "A bitter Italian cocktail with gin, vermouth, and Campari.",
+        "photo": "images/negroni.jpg",
+        "ingrediens": "Gin, Vermouth, Campari",
+        "instructon": "Stir all ingredients with ice and serve over ice.",
+        "likes": 17,
+        "dislikes": 5,
+        "user": 1,
+        "strength": "strong",
+        "taste_type": "bitter",
+        "complexity": "medium",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 7,
+    "fields": {
+        "name": "Daiquiri",
+        "description": "A simple and tart rum-based cocktail with lime.",
+        "photo": "images/daiquiri.jpg",
+        "ingrediens": "Rum, Lime Juice, Sugar",
+        "instructon": "Shake all ingredients with ice and strain into a glass.",
+        "likes": 13,
+        "dislikes": 2,
+        "user": 1,
+        "strength": "medium",
+        "taste_type": "bitter",
+        "complexity": "simple",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 8,
+    "fields": {
+        "name": "Martini",
+        "description": "A classic gin or vodka cocktail with vermouth, served with an olive.",
+        "photo": "images/martini.jpg",
+        "ingrediens": "Gin or Vodka, Vermouth, Olive",
+        "instructon": "Stir or shake with ice and serve in a martini glass.",
+        "likes": 20,
+        "dislikes": 4,
+        "user": 1,
+        "strength": "strong",
+        "taste_type": "bitter",
+        "complexity": "medium",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 9,
+    "fields": {
+        "name": "Long Island Iced Tea",
+        "description": "A potent mix of vodka, tequila, rum, gin, and triple sec.",
+        "photo": "images/long_island_iced_tea.jpg",
+        "ingrediens": "Vodka, Tequila, Rum, Gin, Triple Sec, Cola",
+        "instructon": "Shake all ingredients except cola and serve with ice, top with cola.",
+        "likes": 25,
+        "dislikes": 6,
+        "user": 1,
+        "strength": "strong",
+        "taste_type": "sweet",
+        "complexity": "complex",
+        "temperature": "cold",
+        "short_url": ""
+    }
+}
+
 ]

@@ -43,6 +43,29 @@
                     </div>
                 </div>
                 {% endif %}
+            <div class="row align-items-center mb-4">
+                <!-- Guziki likowania i dislikowania -->
+                <div class="col-md-2">
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'like_drink' drink.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success">👍 {{ drink.likes }}</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-success">👍 {{ drink.likes }}</a>
+                    {% endif %}
+                </div>
+                <div class="col-md-2">
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'dislike_drink' drink.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">👎 {{ drink.dislikes }}</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-danger">👎 {{ drink.dislikes }}</a>
+                    {% endif %}
+                </div>
+            </div>
             {% endfor %}
         </div>
     </div>

@@ -54,3 +54,16 @@ class Drink(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class UserVote(models.Model):
+    VOTE_CHOICES = (
+        ('like', 'Like'),
+        ('dislike', 'Dislike'),
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    drink = models.ForeignKey(Drink, on_delete=models.CASCADE)
+    vote_type = models.CharField(choices=VOTE_CHOICES, max_length=10)
+
+    class Meta:
+        unique_together = ('user', 'drink')  # Ensure users can't vote twice for the same drink

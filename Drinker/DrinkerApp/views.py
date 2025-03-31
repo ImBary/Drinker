@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages 
+from django.contrib import messages
 from .forms import DrinkPreferenceForm
 from .forms import DrinkForm, RegisterForm
-from .models import Drink
+from .models import Drink, UserVote
 import pyshorteners
 from django.http import HttpResponse
 
@@ -73,7 +73,7 @@ def logout_view(request):
 
 def recommend_drink(request):
     recommended_drink = None
-    matches=[]
+    matches = []
     if request.method == "POST":
         form = DrinkPreferenceForm(request.POST)
         if form.is_valid():
@@ -89,37 +89,83 @@ def recommend_drink(request):
                 if filtred.exists():
                     drinks = filtred
                     matches.append("taste")
-                    isInBase=True
+                    isInBase = True
             if strength:
                 filtred = drinks.filter(strength__icontains=strength)
                 if filtred.exists():
                     drinks = filtred
                     matches.append("strength")
-                    isInBase=True
+                    isInBase = True
             if temperature:
                 filtred = drinks.filter(temperature__icontains=temperature)
                 if filtred.exists():
                     drinks = filtred
                     matches.append("temperature")
-                    isInBase=True
+                    isInBase = True
             if complexity:
-                filtred = drinks.filter(complexity__icontains = complexity)
+                filtred = drinks.filter(complexity__icontains=complexity)
                 if filtred.exists():
                     drinks = filtred
                     matches.append("complexity")
-                    isInBase=True
+                    isInBase = True
             if drinks.exists() and isInBase:
                 recommended_drink = drinks.order_by('?').first()
             else:
-                messages.warning(request,"Sorry, we dont have this type of drink in our base yet...")
-                return render(request,'drink_recommendation.html',{'form':form})
-                
+                messages.warning(request, "Sorry, we dont have this type of drink in our base yet...")
+                return render(request, 'drink_recommendation.html', {'form': form})
+
     else:
         form = DrinkPreferenceForm()
-    return render(request,'drink_recommendation.html',{'form':form, 'drink':recommended_drink, 'matches':matches})
+    return render(request, 'drink_recommendation.html', {'form': form, 'drink': recommended_drink, 'matches': matches})
 
 
 def drink_view(request, drink_id):
     drink = Drink.objects.filter(id=drink_id).first()
     ingredients_list = drink.ingrediens.split(',')
     return render(request, "drink_view.html", {'drink': drink, 'ingredients_list': ingredients_list})
+
+
+@login_required
+def like_drink(request, drink_id):
+    drink = Drink.objects.filter(id=drink_id).first()
+
+    user_vote = UserVote.objects.filter(user=request.user, drink=drink).first()
+
+    if user_vote:
+        if user_vote.vote_type == 'like':
+            messages.warning(request, "Zostalo juz polikowane")
+        else:
+            drink.dislikes -= 1
+            drink.likes += 1
+            user_vote.vote_type = 'like'
+            user_vote.save()
+            drink.save()
+    else:
+        drink.likes += 1
+        UserVote.objects.create(user=request.user, drink=drink, vote_type='like')
+        drink.save()
+
+    return redirect('home')
+
+
+@login_required
+def dislike_drink(request, drink_id):
+    drink = Drink.objects.filter(id=drink_id).first()
+
+    user_vote = UserVote.objects.filter(user=request.user, drink=drink).first()
+
+    if user_vote:
+        if user_vote.vote_type == 'dislike':
+            messages.warning(request, "Zostalo juz zdislikowane")
+        else:
+            drink.likes -= 1
+            drink.dislikes += 1
+            user_vote.vote_type = 'dislike'
+            user_vote.save()
+            drink.save()
+    else:
+        drink.dislikes += 1
+        UserVote.objects.create(user=request.user, drink=drink, vote_type='dislike')
+        drink.save()
+
+    return redirect('home')
