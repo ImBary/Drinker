@@ -37,5 +37,9 @@
                 }
             </script>
         {% endif %}
+        {% if user == drink.user %}
+            <a href="{% url 'update_drink' drink.id %}" class="btn btn-warning btn-sm">Edytuj</a>
+            <a href="{% url 'delete_drink' drink.id %}" class="btn btn-outline-danger btn-sm">Usuń</a>
+        {% endif %}
     {% endif %}
 {% endblock %}

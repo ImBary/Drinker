@@ -169,6 +169,195 @@
         "temperature": "cold",
         "short_url": ""
     }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 10,
+    "fields": {
+        "name": "Bloody Mary",
+        "description": "A savory cocktail with vodka, tomato juice, and spices.",
+        "photo": "images/bloody_mary.jpg",
+        "ingrediens": "Vodka, Tomato Juice, Lemon Juice, Worcestershire Sauce, Tabasco",
+        "instructon": "Stir ingredients with ice, strain into a glass, garnish with celery.",
+        "likes": 11,
+        "dislikes": 3,
+        "user": 1,
+        "strength": "medium",
+        "taste_type": "sour",
+        "complexity": "medium",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 11,
+    "fields": {
+        "name": "Mai Tai",
+        "description": "A fruity rum cocktail with lime and orange liqueur.",
+        "photo": "images/mai_tai.jpg",
+        "ingrediens": "Light Rum, Dark Rum, Lime Juice, Orange Curaçao, Orgeat Syrup",
+        "instructon": "Shake all ingredients with ice and strain into a glass with ice.",
+        "likes": 16,
+        "dislikes": 2,
+        "user": 1,
+        "strength": "medium",
+        "taste_type": "sweet",
+        "complexity": "complex",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 12,
+    "fields": {
+        "name": "Old Fashioned",
+        "description": "A timeless cocktail with whiskey, sugar, and bitters.",
+        "photo": "images/old_fashioned.jpg",
+        "ingrediens": "Whiskey, Sugar, Bitters, Orange Peel",
+        "instructon": "Muddle sugar and bitters, add whiskey and ice, stir gently.",
+        "likes": 22,
+        "dislikes": 3,
+        "user": 1,
+        "strength": "strong",
+        "taste_type": "bitter",
+        "complexity": "simple",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 13,
+    "fields": {
+        "name": "Mint Julep",
+        "description": "A Southern classic with bourbon and fresh mint.",
+        "photo": "images/mint_julep.jpg",
+        "ingrediens": "Bourbon, Mint, Sugar, Water",
+        "instructon": "Muddle mint and sugar, add bourbon and crushed ice, stir well.",
+        "likes": 10,
+        "dislikes": 1,
+        "user": 1,
+        "strength": "strong",
+        "taste_type": "sour",
+        "complexity": "simple",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 14,
+    "fields": {
+        "name": "Aperol Spritz",
+        "description": "A bubbly Italian aperitif with Aperol and prosecco.",
+        "photo": "images/aperol_spritz.jpg",
+        "ingrediens": "Aperol, Prosecco, Soda Water, Orange Slice",
+        "instructon": "Pour over ice, top with prosecco and soda, garnish with orange.",
+        "likes": 19,
+        "dislikes": 2,
+        "user": 1,
+        "strength": "light",
+        "taste_type": "bitter",
+        "complexity": "simple",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 15,
+    "fields": {
+        "name": "Caipirinha",
+        "description": "A Brazilian cocktail with cachaça, lime, and sugar.",
+        "photo": "images/caipirinha.jpg",
+        "ingrediens": "Cachaça, Lime, Sugar",
+        "instructon": "Muddle lime and sugar, add cachaça and ice, stir gently.",
+        "likes": 14,
+        "dislikes": 1,
+        "user": 1,
+        "strength": "strong",
+        "taste_type": "sour",
+        "complexity": "simple",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 16,
+    "fields": {
+        "name": "Gin Fizz",
+        "description": "A light and fizzy gin cocktail with lemon.",
+        "photo": "images/gin_fizz.jpg",
+        "ingrediens": "Gin, Lemon Juice, Sugar, Soda Water",
+        "instructon": "Shake gin, lemon, and sugar, then top with soda in a glass.",
+        "likes": 12,
+        "dislikes": 2,
+        "user": 1,
+        "strength": "medium",
+        "taste_type": "sour",
+        "complexity": "simple",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 17,
+    "fields": {
+        "name": "French 75",
+        "description": "A sparkling gin cocktail with lemon and champagne.",
+        "photo": "images/french_75.jpg",
+        "ingrediens": "Gin, Lemon Juice, Sugar, Champagne",
+        "instructon": "Shake gin, lemon juice and sugar, top with champagne.",
+        "likes": 13,
+        "dislikes": 2,
+        "user": 1,
+        "strength": "medium",
+        "taste_type": "sour",
+        "complexity": "medium",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 18,
+    "fields": {
+        "name": "White Russian",
+        "description": "A creamy cocktail with vodka, coffee liqueur, and cream.",
+        "photo": "images/white_russian.jpg",
+        "ingrediens": "Vodka, Coffee Liqueur, Cream",
+        "instructon": "Pour ingredients over ice and stir gently.",
+        "likes": 18,
+        "dislikes": 4,
+        "user": 1,
+        "strength": "medium",
+        "taste_type": "sweet",
+        "complexity": "simple",
+        "temperature": "cold",
+        "short_url": ""
+    }
+},
+{
+    "model": "DrinkerApp.drink",
+    "pk": 19,
+    "fields": {
+        "name": "Amaretto Sour",
+        "description": "A sweet and nutty cocktail with a tangy twist.",
+        "photo": "images/amaretto_sour.jpg",
+        "ingrediens": "Amaretto, Lemon Juice, Simple Syrup",
+        "instructon": "Shake all ingredients with ice and strain into a glass.",
+        "likes": 15,
+        "dislikes": 3,
+        "user": 1,
+        "strength": "light",
+        "taste_type": "sweet",
+        "complexity": "simple",
+        "temperature": "cold",
+        "short_url": ""
+    }
 }
-
 ]

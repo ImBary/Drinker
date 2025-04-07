@@ -34,6 +34,7 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
+
 TASTE_CHOICES = [
         ('sweet', 'Sweet'),
         ('bitter', 'Bitter'),

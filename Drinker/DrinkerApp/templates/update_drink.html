@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="text-center my-4">Edytuj przepis</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <img src="{{ drink.photo.url }}" class="img-fluid rounded mb-3" alt="{{ drink.name }}">
+                <div class="form-group">
+                    <label for="id_photo">Zmień zdjęcie:</label>
+                    {{ form.photo }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="id_name">Nazwa drinka:</label>
+                    {{ form.name }}
+                </div>
+                <div class="form-group mb-3">
+                    <label for="id_description">Opis:</label>
+                    {{ form.description }}
+                </div>
+                <div class="form-group mb-3">
+                    <label for="id_ingrediens">Składniki (oddzielone przecinkami):</label>
+                    {{ form.ingrediens }}
+                </div>
+                <div class="form-group mb-3">
+                    <label for="id_instructon">Instrukcja:</label>
+                    {{ form.instructon }}
+                </div>
+                <div class="form-group mb-3">
+                    <label for="id_taste_type">Typ smaku:</label>
+                    {{ form.taste_type }}
+                </div>
+                <div class="form-group mb-3">
+                    <label for="id_strength">Moc:</label>
+                    {{ form.strength }}
+                </div>
+                <div class="form-group mb-3">
+                    <label for="id_temperature">Temperatura podania:</label>
+                    {{ form.temperature }}
+                </div>
+                <div class="form-group mb-3">
+                    <label for="id_complexity">Trudność:</label>
+                    {{ form.complexity }}
+                </div>
+
+                <button type="submit" class="btn btn-success">Zapisz zmiany</button>
+                <a href="{% url 'drink_view' drink.id %}" class="btn btn-secondary">Anuluj</a>
+            </div>
+        </div>
+    </form>
+{% endblock %}

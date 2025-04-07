@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.contrib import messages
 from .forms import DrinkPreferenceForm
 from .forms import DrinkForm, RegisterForm
@@ -12,7 +13,11 @@ from django.http import HttpResponse
 
 def home(request):
     drinks = Drink.objects.all()
-    return render(request, "home.html", {"drinks": drinks})
+    paginator = Paginator(drinks, 5)
+
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    return render(request, "home.html", {"drinks": page_obj})
 
 
 @login_required()
@@ -145,7 +150,7 @@ def like_drink(request, drink_id):
         UserVote.objects.create(user=request.user, drink=drink, vote_type='like')
         drink.save()
 
-    return redirect('home')
+    return redirect(request.POST.get("next", "home"))
 
 
 @login_required
@@ -168,4 +173,32 @@ def dislike_drink(request, drink_id):
         UserVote.objects.create(user=request.user, drink=drink, vote_type='dislike')
         drink.save()
 
-    return redirect('home')
+    return redirect(request.POST.get("next", "home"))
+
+
+@login_required
+def update_drink(request, drink_id):
+    drink = Drink.objects.filter(id=drink_id).first()
+
+    if request.method == 'POST':
+        form = DrinkForm(request.POST, request.FILES, instance=drink)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Drink został zaktualizowany.")
+            return redirect('home')
+    else:
+        form = DrinkForm(instance=drink)
+
+    return render(request, 'update_drink.html', {'form': form, 'drink': drink})
+
+
+@login_required
+def delete_drink(request, drink_id):
+    drink = Drink.objects.filter(id=drink_id).first()
+
+    if request.method == 'POST':
+        drink.delete()
+        messages.success(request, "Drink został usunięty.")
+        return redirect('home')
+
+    return render(request, 'delete_drink.html', {'drink': drink})
