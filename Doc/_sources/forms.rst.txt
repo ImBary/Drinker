@@ -1,0 +1,73 @@
+Formularze
+=========
+
+.. automodule:: your_app.forms
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+DrinkForm
+--------
+
+.. py:class:: DrinkForm
+
+   Formularz do tworzenia i aktualizacji napojów.
+
+   .. py:attribute:: Meta.model
+      :type: Model
+
+      Model Drink.
+
+   .. py:attribute:: Meta.fields
+      :type: list
+
+      Lista pól zawartych w formularzu: "name", "description", "photo", "ingrediens", "instructon", "taste_type", "strength", "temperature", "complexity".
+
+RegisterForm
+-----------
+
+.. py:class:: RegisterForm
+
+   Formularz do rejestracji nowych użytkowników.
+
+   .. py:attribute:: email
+      :type: EmailField
+
+      Pole email użytkownika, wymagane.
+
+   .. py:attribute:: Meta.model
+      :type: Model
+
+      Model User z django.contrib.auth.models.
+
+   .. py:attribute:: Meta.fields
+      :type: list
+
+      Lista pól formularza: 'username', 'email', 'password1', 'password2'.
+
+DrinkPreferenceForm
+------------------
+
+.. py:class:: DrinkPreferenceForm
+
+   Formularz do zbierania preferencji użytkownika w celu rekomendacji napojów.
+
+   .. py:attribute:: taste
+      :type: ChoiceField
+
+      Pole wyboru preferowanego smaku.
+
+   .. py:attribute:: strength
+      :type: ChoiceField
+
+      Pole wyboru preferowanej mocy napoju.
+
+   .. py:attribute:: temperature
+      :type: ChoiceField
+
+      Pole wyboru preferowanej temperatury.
+
+   .. py:attribute:: complexity
+      :type: ChoiceField
+
+      Pole wyboru preferowanej złożoności.

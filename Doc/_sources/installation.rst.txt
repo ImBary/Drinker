@@ -1,0 +1,46 @@
+Instalacja
+==========
+
+Wymagania
+---------
+
+* Python 3.6+
+* Django 3.0+
+* Inne zależności wymienione w requirements.txt
+
+Kroki instalacji
+---------------
+
+1. Klonowanie repozytorium:
+
+   .. code-block:: bash
+
+      git clone https://github.com/twoj-username/drinkapp.git
+      cd drinkapp
+
+2. Utworzenie i aktywacja wirtualnego środowiska:
+
+   .. code-block:: bash
+
+      python -m venv venv
+      source venv/bin/activate  # W systemie Windows: venv\Scripts\activate
+
+3. Instalacja zależności:
+
+   .. code-block:: bash
+
+      pip install -r requirements.txt
+
+4. Przeprowadzenie migracji:
+
+   .. code-block:: bash
+
+      python manage.py migrate
+
+5. Uruchomienie serwera deweloperskiego:
+
+   .. code-block:: bash
+
+      python manage.py runserver
+
+Aplikacja będzie dostępna pod adresem http://127.0.0.1:8000/.
