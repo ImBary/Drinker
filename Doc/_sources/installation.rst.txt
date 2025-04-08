@@ -6,7 +6,10 @@ Wymagania
 
 * Python 3.6+
 * Django 3.0+
-* Inne zależności wymienione w requirements.txt
+* asgrief 3.8.1+
+* sqlparse 0.5.3+
+* pillow 11.1.0+
+* pyshorteners 1.0.1+
 
 Kroki instalacji
 ---------------
