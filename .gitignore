@@ -1,8 +1,38 @@
-myenv/
+# Systemowe
+.DS_Store
+Thumbs.db
+
+# Pycache i kompilowane pliki Pythona
 __pycache__/
-db.sqlite3
-.venv
-.idea
-*.pyc
+*.py[cod]
 *.pyo
+*.pyd
+
+# Środowiska wirtualne
+venv/
+.env/
+*.env
+
+# Pliki IDE (np. JetBrains/PyCharm)
+.idea/
+
+# Django: bazy danych, migracje tymczasowe itp.
+*.sqlite3
 *.log
+
+# Sphinx: build i tymczasowe pliki dokumentacji
+Doc/_build/
+Doc/.doctrees/
+Doc/_static/
+Doc/_sources/
+
+# Drinker: build i dokumentacja (jeśli kopiowana)
+Drinker/_build/
+Drinker/_static/
+Drinker/_templates/
+
+
+# Inne katalogi tymczasowe i backupy
+*.bak
+*.swp
+*.tmp
