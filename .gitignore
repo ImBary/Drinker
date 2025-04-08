@@ -26,11 +26,6 @@ Doc/.doctrees/
 Doc/_static/
 Doc/_sources/
 
-# Drinker: build i dokumentacja (jeśli kopiowana)
-Drinker/_build/
-Drinker/_static/
-Drinker/_templates/
-
 
 # Inne katalogi tymczasowe i backupy
 *.bak
