@@ -1,0 +1,91 @@
+URLe
+====
+
+Ścieżki URL zdefiniowane w aplikacji DrinkApp.
+
+Główne URL
+---------
+
+.. py:function:: ''
+
+   URL strony głównej, obsługiwany przez widok ``home``.
+
+Dodawanie napoju
+--------------
+
+.. py:function:: 'add/'
+
+   URL formularza dodawania nowego napoju, obsługiwany przez widok ``add_drink``.
+   Wymaga zalogowania.
+
+Rejestracja
+----------
+
+.. py:function:: 'register/'
+
+   URL formularza rejestracji, obsługiwany przez widok ``register``.
+
+Logowanie
+--------
+
+.. py:function:: 'login/'
+
+   URL formularza logowania, obsługiwany przez widok ``login_view``.
+
+Wylogowanie
+----------
+
+.. py:function:: 'logout/'
+
+   URL do wylogowania, obsługiwany przez widok ``logout_view``.
+
+Rekomendacja napojów
+------------------
+
+.. py:function:: 'recommend/'
+
+   URL systemu rekomendacji napojów, obsługiwany przez widok ``recommend_drink``.
+
+Widok napoju
+----------
+
+.. py:function:: 'drink/<int:drink_id>'
+
+   URL szczegółów napoju, obsługiwany przez widok ``drink_view``.
+   Parametr ``drink_id`` określa ID napoju.
+
+Polubienie napoju
+---------------
+
+.. py:function:: 'like_drink/<int:drink_id>/'
+
+   URL do polubienia napoju, obsługiwany przez widok ``like_drink``.
+   Parametr ``drink_id`` określa ID napoju.
+   Wymaga zalogowania.
+
+Negatywna ocena napoju
+--------------------
+
+.. py:function:: 'dislike_drink/<int:drink_id>/'
+
+   URL do negatywnej oceny napoju, obsługiwany przez widok ``dislike_drink``.
+   Parametr ``drink_id`` określa ID napoju.
+   Wymaga zalogowania.
+
+Edycja napoju
+-----------
+
+.. py:function:: 'drink/<int:drink_id>/edit/'
+
+   URL do edycji napoju, obsługiwany przez widok ``update_drink``.
+   Parametr ``drink_id`` określa ID napoju.
+   Wymaga zalogowania.
+
+Usunięcie napoju
+--------------
+
+.. py:function:: 'drink/<int:drink_id>/delete/'
+
+   URL do usunięcia napoju, obsługiwany przez widok ``delete_drink``.
+   Parametr ``drink_id`` określa ID napoju.
+   Wymaga zalogowania.

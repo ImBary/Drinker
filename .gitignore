@@ -20,13 +20,6 @@ venv/
 *.sqlite3
 *.log
 
-# Sphinx: build i tymczasowe pliki dokumentacji
-Doc/_build/
-Doc/.doctrees/
-Doc/_static/
-Doc/_sources/
-
-
 # Inne katalogi tymczasowe i backupy
 *.bak
 *.swp

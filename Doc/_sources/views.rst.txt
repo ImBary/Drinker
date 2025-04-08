@@ -1,0 +1,154 @@
+Widoki
+======
+
+.. automodule:: your_app.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Strona główna
+------------
+
+.. py:function:: home(request)
+
+   Wyświetla stronę główną aplikacji z listą napojów.
+
+   :param request: Obiekt żądania HTTP
+   :type request: HttpRequest
+   :return: Wyrenderowany szablon strony głównej
+   :rtype: HttpResponse
+
+Dodawanie napoju
+--------------
+
+.. py:function:: add_drink(request)
+
+   Pozwala zalogowanemu użytkownikowi dodać nowy napój.
+
+   :param request: Obiekt żądania HTTP
+   :type request: HttpRequest
+   :return: Wyrenderowany formularz lub przekierowanie
+   :rtype: HttpResponse
+   :requires: Zalogowany użytkownik
+
+Rejestracja użytkownika
+----------------------
+
+.. py:function:: register(request)
+
+   Obsługuje rejestrację nowych użytkowników.
+
+   :param request: Obiekt żądania HTTP
+   :type request: HttpRequest
+   :return: Wyrenderowany formularz lub przekierowanie
+   :rtype: HttpResponse
+
+Logowanie
+--------
+
+.. py:function:: login_view(request)
+
+   Obsługuje logowanie użytkowników.
+
+   :param request: Obiekt żądania HTTP
+   :type request: HttpRequest
+   :return: Wyrenderowany formularz lub przekierowanie
+   :rtype: HttpResponse
+
+Wylogowanie
+----------
+
+.. py:function:: logout_view(request)
+
+   Wylogowuje użytkownika i przekierowuje na stronę główną.
+
+   :param request: Obiekt żądania HTTP
+   :type request: HttpRequest
+   :return: Przekierowanie na stronę główną
+   :rtype: HttpResponse
+
+Rekomendacja napojów
+------------------
+
+.. py:function:: recommend_drink(request)
+
+   Rekomenduje napój na podstawie preferencji użytkownika.
+
+   :param request: Obiekt żądania HTTP
+   :type request: HttpRequest
+   :return: Wyrenderowany szablon z rekomendacją
+   :rtype: HttpResponse
+
+Szczegóły napoju
+--------------
+
+.. py:function:: drink_view(request, drink_id)
+
+   Wyświetla szczegółowe informacje o napoju.
+
+   :param request: Obiekt żądania HTTP
+   :type request: HttpRequest
+   :param drink_id: ID napoju
+   :type drink_id: int
+   :return: Wyrenderowany szablon z detalami napoju
+   :rtype: HttpResponse
+
+Polubienie napoju
+---------------
+
+.. py:function:: like_drink(request, drink_id)
+
+   Pozwala użytkownikowi polubić napój.
+
+   :param request: Obiekt żądania HTTP
+   :type request: HttpRequest
+   :param drink_id: ID napoju
+   :type drink_id: int
+   :return: Przekierowanie
+   :rtype: HttpResponse
+   :requires: Zalogowany użytkownik
+
+Negatywna ocena napoju
+--------------------
+
+.. py:function:: dislike_drink(request, drink_id)
+
+   Pozwala użytkownikowi negatywnie ocenić napój.
+
+   :param request: Obiekt żądania HTTP
+   :type request: HttpRequest
+   :param drink_id: ID napoju
+   :type drink_id: int
+   :return: Przekierowanie
+   :rtype: HttpResponse
+   :requires: Zalogowany użytkownik
+
+Aktualizacja napoju
+-----------------
+
+.. py:function:: update_drink(request, drink_id)
+
+   Umożliwia edycję istniejącego napoju.
+
+   :param request: Obiekt żądania HTTP
+   :type request: HttpRequest
+   :param drink_id: ID napoju
+   :type drink_id: int
+   :return: Wyrenderowany formularz lub przekierowanie
+   :rtype: HttpResponse
+   :requires: Zalogowany użytkownik
+
+Usunięcie napoju
+--------------
+
+.. py:function:: delete_drink(request, drink_id)
+
+   Usuwa napój z systemu.
+
+   :param request: Obiekt żądania HTTP
+   :type request: HttpRequest
+   :param drink_id: ID napoju
+   :type drink_id: int
+   :return: Wyrenderowany szablon potwierdzenia lub przekierowanie
+   :rtype: HttpResponse
+   :requires: Zalogowany użytkownik
