@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Widoki &mdash; Drinker 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Formularze" href="forms.html" />
+    <link rel="prev" title="Modele" href="models.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Drinker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Spis treści:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Instalacja</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Modele</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Widoki</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#strona-glowna">Strona główna</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dodawanie-napoju">Dodawanie napoju</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add_drink"><code class="docutils literal notranslate"><span class="pre">add_drink()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rejestracja-uzytkownika">Rejestracja użytkownika</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#logowanie">Logowanie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#login_view"><code class="docutils literal notranslate"><span class="pre">login_view()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#wylogowanie">Wylogowanie</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#logout_view"><code class="docutils literal notranslate"><span class="pre">logout_view()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rekomendacja-napojow">Rekomendacja napojów</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recommend_drink"><code class="docutils literal notranslate"><span class="pre">recommend_drink()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#szczegoly-napoju">Szczegóły napoju</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#drink_view"><code class="docutils literal notranslate"><span class="pre">drink_view()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#polubienie-napoju">Polubienie napoju</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#like_drink"><code class="docutils literal notranslate"><span class="pre">like_drink()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#negatywna-ocena-napoju">Negatywna ocena napoju</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dislike_drink"><code class="docutils literal notranslate"><span class="pre">dislike_drink()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aktualizacja-napoju">Aktualizacja napoju</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#update_drink"><code class="docutils literal notranslate"><span class="pre">update_drink()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usuniecie-napoju">Usunięcie napoju</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#delete_drink"><code class="docutils literal notranslate"><span class="pre">delete_drink()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="forms.html">Formularze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="urls.html">URLe</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Drinker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Widoki</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/views.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="widoki">
+<h1>Widoki<a class="headerlink" href="#widoki" title="Link to this heading"></a></h1>
+<section id="strona-glowna">
+<h2>Strona główna<a class="headerlink" href="#strona-glowna" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="home">
+<span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#home" title="Link to this definition"></a></dt>
+<dd><p>Wyświetla stronę główną aplikacji z listą napojów.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – Obiekt żądania HTTP</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wyrenderowany szablon strony głównej</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="dodawanie-napoju">
+<h2>Dodawanie napoju<a class="headerlink" href="#dodawanie-napoju" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="add_drink">
+<span class="sig-name descname"><span class="pre">add_drink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#add_drink" title="Link to this definition"></a></dt>
+<dd><p>Pozwala zalogowanemu użytkownikowi dodać nowy napój.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – Obiekt żądania HTTP</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wyrenderowany formularz lub przekierowanie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+<dt class="field-even">Requires<span class="colon">:</span></dt>
+<dd class="field-even"><p>Zalogowany użytkownik</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="rejestracja-uzytkownika">
+<h2>Rejestracja użytkownika<a class="headerlink" href="#rejestracja-uzytkownika" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="register">
+<span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#register" title="Link to this definition"></a></dt>
+<dd><p>Obsługuje rejestrację nowych użytkowników.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – Obiekt żądania HTTP</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wyrenderowany formularz lub przekierowanie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="logowanie">
+<h2>Logowanie<a class="headerlink" href="#logowanie" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="login_view">
+<span class="sig-name descname"><span class="pre">login_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#login_view" title="Link to this definition"></a></dt>
+<dd><p>Obsługuje logowanie użytkowników.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – Obiekt żądania HTTP</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wyrenderowany formularz lub przekierowanie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="wylogowanie">
+<h2>Wylogowanie<a class="headerlink" href="#wylogowanie" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="logout_view">
+<span class="sig-name descname"><span class="pre">logout_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#logout_view" title="Link to this definition"></a></dt>
+<dd><p>Wylogowuje użytkownika i przekierowuje na stronę główną.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – Obiekt żądania HTTP</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Przekierowanie na stronę główną</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="rekomendacja-napojow">
+<h2>Rekomendacja napojów<a class="headerlink" href="#rekomendacja-napojow" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="recommend_drink">
+<span class="sig-name descname"><span class="pre">recommend_drink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recommend_drink" title="Link to this definition"></a></dt>
+<dd><p>Rekomenduje napój na podstawie preferencji użytkownika.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – Obiekt żądania HTTP</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wyrenderowany szablon z rekomendacją</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="szczegoly-napoju">
+<h2>Szczegóły napoju<a class="headerlink" href="#szczegoly-napoju" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="drink_view">
+<span class="sig-name descname"><span class="pre">drink_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drink_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#drink_view" title="Link to this definition"></a></dt>
+<dd><p>Wyświetla szczegółowe informacje o napoju.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – Obiekt żądania HTTP</p></li>
+<li><p><strong>drink_id</strong> (<em>int</em>) – ID napoju</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wyrenderowany szablon z detalami napoju</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="polubienie-napoju">
+<h2>Polubienie napoju<a class="headerlink" href="#polubienie-napoju" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="like_drink">
+<span class="sig-name descname"><span class="pre">like_drink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drink_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#like_drink" title="Link to this definition"></a></dt>
+<dd><p>Pozwala użytkownikowi polubić napój.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – Obiekt żądania HTTP</p></li>
+<li><p><strong>drink_id</strong> (<em>int</em>) – ID napoju</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Przekierowanie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+<dt class="field-even">Requires<span class="colon">:</span></dt>
+<dd class="field-even"><p>Zalogowany użytkownik</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="negatywna-ocena-napoju">
+<h2>Negatywna ocena napoju<a class="headerlink" href="#negatywna-ocena-napoju" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dislike_drink">
+<span class="sig-name descname"><span class="pre">dislike_drink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drink_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dislike_drink" title="Link to this definition"></a></dt>
+<dd><p>Pozwala użytkownikowi negatywnie ocenić napój.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – Obiekt żądania HTTP</p></li>
+<li><p><strong>drink_id</strong> (<em>int</em>) – ID napoju</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Przekierowanie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+<dt class="field-even">Requires<span class="colon">:</span></dt>
+<dd class="field-even"><p>Zalogowany użytkownik</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="aktualizacja-napoju">
+<h2>Aktualizacja napoju<a class="headerlink" href="#aktualizacja-napoju" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="update_drink">
+<span class="sig-name descname"><span class="pre">update_drink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drink_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#update_drink" title="Link to this definition"></a></dt>
+<dd><p>Umożliwia edycję istniejącego napoju.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – Obiekt żądania HTTP</p></li>
+<li><p><strong>drink_id</strong> (<em>int</em>) – ID napoju</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wyrenderowany formularz lub przekierowanie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+<dt class="field-even">Requires<span class="colon">:</span></dt>
+<dd class="field-even"><p>Zalogowany użytkownik</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="usuniecie-napoju">
+<h2>Usunięcie napoju<a class="headerlink" href="#usuniecie-napoju" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="delete_drink">
+<span class="sig-name descname"><span class="pre">delete_drink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drink_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delete_drink" title="Link to this definition"></a></dt>
+<dd><p>Usuwa napój z systemu.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – Obiekt żądania HTTP</p></li>
+<li><p><strong>drink_id</strong> (<em>int</em>) – ID napoju</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wyrenderowany szablon potwierdzenia lub przekierowanie</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+<dt class="field-even">Requires<span class="colon">:</span></dt>
+<dd class="field-even"><p>Zalogowany użytkownik</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="models.html" class="btn btn-neutral float-left" title="Modele" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="forms.html" class="btn btn-neutral float-right" title="Formularze" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BS WB MS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modele &mdash; Drinker 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Widoki" href="views.html" />
+    <link rel="prev" title="Instalacja" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Drinker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Spis treści:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Instalacja</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Modele</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#drink">Drink</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Drink"><code class="docutils literal notranslate"><span class="pre">Drink</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.name"><code class="docutils literal notranslate"><span class="pre">Drink.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.description"><code class="docutils literal notranslate"><span class="pre">Drink.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.photo"><code class="docutils literal notranslate"><span class="pre">Drink.photo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.ingrediens"><code class="docutils literal notranslate"><span class="pre">Drink.ingrediens</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.instructon"><code class="docutils literal notranslate"><span class="pre">Drink.instructon</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.likes"><code class="docutils literal notranslate"><span class="pre">Drink.likes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.dislikes"><code class="docutils literal notranslate"><span class="pre">Drink.dislikes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.taste_type"><code class="docutils literal notranslate"><span class="pre">Drink.taste_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.strength"><code class="docutils literal notranslate"><span class="pre">Drink.strength</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.temperature"><code class="docutils literal notranslate"><span class="pre">Drink.temperature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.complexity"><code class="docutils literal notranslate"><span class="pre">Drink.complexity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.short_url"><code class="docutils literal notranslate"><span class="pre">Drink.short_url</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Drink.user"><code class="docutils literal notranslate"><span class="pre">Drink.user</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#uservote">UserVote</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#UserVote"><code class="docutils literal notranslate"><span class="pre">UserVote</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#UserVote.user"><code class="docutils literal notranslate"><span class="pre">UserVote.user</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#UserVote.drink"><code class="docutils literal notranslate"><span class="pre">UserVote.drink</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#UserVote.vote_type"><code class="docutils literal notranslate"><span class="pre">UserVote.vote_type</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Widoki</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forms.html">Formularze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="urls.html">URLe</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Drinker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Modele</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modele">
+<h1>Modele<a class="headerlink" href="#modele" title="Link to this heading"></a></h1>
+<section id="drink">
+<h2>Drink<a class="headerlink" href="#drink" title="Link to this heading"></a></h2>
+<p>Model reprezentujący napój w aplikacji.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Drink">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Drink</span></span><a class="headerlink" href="#Drink" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CharField</span></em><a class="headerlink" href="#Drink.name" title="Link to this definition"></a></dt>
+<dd><p>Nazwa napoju.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TextField</span></em><a class="headerlink" href="#Drink.description" title="Link to this definition"></a></dt>
+<dd><p>Opis napoju.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.photo">
+<span class="sig-name descname"><span class="pre">photo</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ImageField</span></em><a class="headerlink" href="#Drink.photo" title="Link to this definition"></a></dt>
+<dd><p>Zdjęcie napoju.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.ingrediens">
+<span class="sig-name descname"><span class="pre">ingrediens</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TextField</span></em><a class="headerlink" href="#Drink.ingrediens" title="Link to this definition"></a></dt>
+<dd><p>Lista składników napoju oddzielonych przecinkami.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.instructon">
+<span class="sig-name descname"><span class="pre">instructon</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">TextField</span></em><a class="headerlink" href="#Drink.instructon" title="Link to this definition"></a></dt>
+<dd><p>Instrukcja przygotowania napoju.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.likes">
+<span class="sig-name descname"><span class="pre">likes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">IntegerField</span></em><a class="headerlink" href="#Drink.likes" title="Link to this definition"></a></dt>
+<dd><p>Liczba polubień napoju.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.dislikes">
+<span class="sig-name descname"><span class="pre">dislikes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">IntegerField</span></em><a class="headerlink" href="#Drink.dislikes" title="Link to this definition"></a></dt>
+<dd><p>Liczba negatywnych ocen napoju.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.taste_type">
+<span class="sig-name descname"><span class="pre">taste_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CharField</span></em><a class="headerlink" href="#Drink.taste_type" title="Link to this definition"></a></dt>
+<dd><p>Typ smaku napoju. Możliwe opcje: ‘sweet’, ‘bitter’, ‘sour’, ‘salty’, ‘umami’.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.strength">
+<span class="sig-name descname"><span class="pre">strength</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CharField</span></em><a class="headerlink" href="#Drink.strength" title="Link to this definition"></a></dt>
+<dd><p>Moc napoju. Możliwe opcje: ‘non-alcoholic’, ‘light’, ‘medium’, ‘strong’.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.temperature">
+<span class="sig-name descname"><span class="pre">temperature</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CharField</span></em><a class="headerlink" href="#Drink.temperature" title="Link to this definition"></a></dt>
+<dd><p>Preferowana temperatura podania. Możliwe opcje: ‘hot’, ‘cold’, ‘warm’.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.complexity">
+<span class="sig-name descname"><span class="pre">complexity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CharField</span></em><a class="headerlink" href="#Drink.complexity" title="Link to this definition"></a></dt>
+<dd><p>Poziom złożoności przygotowania. Możliwe opcje: ‘simple’, ‘moderate’, ‘complex’.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.short_url">
+<span class="sig-name descname"><span class="pre">short_url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CharField</span></em><a class="headerlink" href="#Drink.short_url" title="Link to this definition"></a></dt>
+<dd><p>Skrócony URL do strony napoju.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Drink.user">
+<span class="sig-name descname"><span class="pre">user</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ForeignKey</span></em><a class="headerlink" href="#Drink.user" title="Link to this definition"></a></dt>
+<dd><p>Użytkownik, który dodał napój.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="uservote">
+<h2>UserVote<a class="headerlink" href="#uservote" title="Link to this heading"></a></h2>
+<p>Model reprezentujący głos użytkownika na napój.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="UserVote">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UserVote</span></span><a class="headerlink" href="#UserVote" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="UserVote.user">
+<span class="sig-name descname"><span class="pre">user</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ForeignKey</span></em><a class="headerlink" href="#UserVote.user" title="Link to this definition"></a></dt>
+<dd><p>Użytkownik, który oddał głos.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserVote.drink">
+<span class="sig-name descname"><span class="pre">drink</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ForeignKey</span></em><a class="headerlink" href="#UserVote.drink" title="Link to this definition"></a></dt>
+<dd><p>Napój, na który oddano głos.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="UserVote.vote_type">
+<span class="sig-name descname"><span class="pre">vote_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CharField</span></em><a class="headerlink" href="#UserVote.vote_type" title="Link to this definition"></a></dt>
+<dd><p>Typ głosu: ‘like’ lub ‘dislike’.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Instalacja" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="views.html" class="btn btn-neutral float-right" title="Widoki" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BS WB MS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

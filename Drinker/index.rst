@@ -1,0 +1,21 @@
+DrinkApp - Dokumentacja
+======================
+
+DrinkApp to aplikacja Django do zarządzania i rekomendowania napojów. Umożliwia użytkownikom dodawanie, ocenianie i odkrywanie nowych napojów na podstawie ich preferencji.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Spis treści:
+
+   installation
+   models
+   views
+   forms
+   urls
+
+Indeksy i tabele
+===============
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
