@@ -202,3 +202,9 @@ def delete_drink(request, drink_id):
         return redirect('home')
 
     return render(request, 'delete_drink.html', {'drink': drink})
+
+def custom_404(request, exception):
+    return render(request, "errors/404.html", status=404)
+
+def custom_500(request):
+    return render(request, "errors/500.html", status=500)
