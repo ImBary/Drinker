@@ -9,6 +9,14 @@ from .forms import DrinkForm, RegisterForm
 from .models import Drink, UserVote
 import pyshorteners
 from django.http import HttpResponse
+import os
+from PIL import Image
+import numpy as np
+import tensorflow as tf
+from django import forms
+
+MODEL_PATH = os.path.join('DrinkerApp', 'ml_model', 'model.h5')
+drink_model = tf.keras.models.load_model(MODEL_PATH)
 
 
 def home(request):
@@ -208,3 +216,40 @@ def custom_404(request, exception):
 
 def custom_500(request):
     return render(request, "errors/500.html", status=500)
+
+def predict_drink(image_file):
+    image = Image.open(image_file).convert('RGB')
+    image = image.resize((224, 224))
+    img_array = np.array(image) / 255.0
+    img_array = np.expand_dims(img_array, axis=0)
+
+    predictions = drink_model.predict(img_array)
+    class_index = np.argmax(predictions)
+
+    class_names = ['amaretto_sour', 'aperol_spritz', 'bloody_mary', 'caiprinha', 'cosmopolitan', 'daiquiri', 'french_75', 'gin_fizz', 'long_island_ice_tea', 'mai_tai', 'margarita', 'martini', 'mint_julep', 'mojito', 'negroni', 'old_fashioned', 'pina_colada', 'whiskey_sour', 'white_russian']
+    return class_names[class_index]
+
+
+
+class ImageUploadForm(forms.Form):
+    image = forms.ImageField(label="Upload an image")
+
+
+@login_required
+def drink_recognition(request):
+    prediction = None
+
+    if request.method == "POST":
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.cleaned_data['image']
+            prediction = predict_drink(image)
+        else:
+            messages.error(request, "Invalid form submission. Please try again.")
+    else:
+        form = ImageUploadForm()
+
+    return render(request, 'drink_recognition.html', {
+        'form': form,
+        'prediction': prediction
+    })

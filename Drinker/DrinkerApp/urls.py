@@ -16,4 +16,5 @@ urlpatterns = [
     path('dislike_drink/<int:drink_id>/', views.dislike_drink, name='dislike_drink'),
     path('drink/<int:drink_id>/edit/', views.update_drink, name='update_drink'),
     path('drink/<int:drink_id>/delete/', views.delete_drink, name='delete_drink'),
+    path('recognize/', views.drink_recognition, name='drink_recognition')
 ]

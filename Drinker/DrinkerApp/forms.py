@@ -67,3 +67,6 @@ class DrinkPreferenceForm(forms.Form):
     strength = forms.ChoiceField(choices=STRENGTH_CHOICES, widget=forms.RadioSelect, label="How strong should it be?")
     temperature = forms.ChoiceField(choices=TEMPERATURE_CHOICES, widget=forms.RadioSelect, label="Preferred temperature?")
     complexity = forms.ChoiceField(choices=COMPLEXITY_CHOICES, widget=forms.RadioSelect, label="How complex should it be?")
+
+class ImageUploadForm(forms.Form):
+    image = forms.ImageField(label="Upload a drink image")
