@@ -66,4 +66,6 @@ class UserVote(models.Model):
     vote_type = models.CharField(choices=VOTE_CHOICES, max_length=10)
 
     class Meta:
-        unique_together = ('user', 'drink')  # Ensure users can't vote twice for the same drink
+        constraints = [
+            models.UniqueConstraint(fields=['user', 'drink'], name='unique_user_drink_vote')
+        ]
