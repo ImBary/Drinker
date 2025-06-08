@@ -238,12 +238,18 @@ class ImageUploadForm(forms.Form):
 @login_required
 def drink_recognition(request):
     prediction = None
+    drink_obj = None
 
     if request.method == "POST":
         form = ImageUploadForm(request.POST, request.FILES)
         if form.is_valid():
             image = form.cleaned_data['image']
-            prediction = predict_drink(image)
+            predicted_name = predict_drink(image)
+            try:
+                drink_obj = Drink.objects.get(name__iexact=predicted_name)  # Case-insensitive match
+                prediction = predicted_name
+            except Drink.DoesNotExist:
+                messages.error(request, f"No drink found for '{predicted_name}'.")
         else:
             messages.error(request, "Invalid form submission. Please try again.")
     else:
@@ -251,5 +257,6 @@ def drink_recognition(request):
 
     return render(request, 'drink_recognition.html', {
         'form': form,
-        'prediction': prediction
+        'prediction': prediction,
+        'drink': drink_obj,
     })
