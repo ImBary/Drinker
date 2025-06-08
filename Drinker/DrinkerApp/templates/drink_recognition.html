@@ -25,7 +25,14 @@
             <hr class="my-4">
             <h4 class="text-center">
                 We think this is:
-                <span class="text-success">{{ prediction }}</span>
+                {% if drink %}
+                    <a href="{% url 'drink_view' drink.id %}" class="text-success text-decoration-none">
+                        {{ prediction }}
+                    </a>
+                {% else %}
+                    <span class="text-success">{{ prediction }}</span>
+                    <div class="text-muted small">(Not in database)</div>
+                {% endif %}
             </h4>
         {% endif %}
 
